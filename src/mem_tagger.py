@@ -40,8 +40,7 @@ class MEMTagger:
         # Logistic Regression (Maximum Entropy) in one step.
         self.model = Pipeline([
             ('vectorizer', DictVectorizer(sparse=True)),
-            ('classifier', LogisticRegression(
-                multi_class='multinomial', 
+            ('classifier', LogisticRegression( 
                 solver='lbfgs', 
                 max_iter=100, 
                 verbose=1
