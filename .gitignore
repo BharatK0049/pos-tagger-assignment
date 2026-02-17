@@ -1,0 +1,19 @@
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Python cache and temporary files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Data directory
+# We ignore this because we download/generate the Brown corpus locally
+data/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
