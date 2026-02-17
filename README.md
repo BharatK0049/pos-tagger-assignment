@@ -70,6 +70,11 @@ python src/main.py
 ```
 
 ## Results and Comparison
-Model,Accuracy,Logic,Handling of OOV Words
-HMM,92.69%,Generative (Transition/Emission),Relies on smoothed emission
-MEM,[Insert %],Discriminative (Feature-based),Uses suffixes/capitalization
+Model	Accuracy	Logic	Handling of OOV Words
+HMM	92.70%	Generative (Transition/Emission)	Relies on smoothed emission
+MEM	96.08%	Discriminative (Feature-based)	Uses suffixes/capitalization
+
+## Key Observations
+The Accuracy Gap: The MEM outperformed the HMM by 3.38%. This is primarily because the MEM can use morphological features (like the "-ing" or "-ed" suffixes) to "detect" the tag of a word it has never seen before, whereas the HMM has to rely mostly on the surrounding tags.
+
+Efficiency Trade-off: While the HMM trains nearly instantaneously, its evaluation using the Viterbi algorithm is computationally heavy. The MEM takes much longer to train initially (as it solves an optimization problem) but offers much faster inference speeds once trained.
