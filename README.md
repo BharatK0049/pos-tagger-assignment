@@ -70,9 +70,12 @@ python src/main.py
 ```
 
 ## Results and Comparison
-Model	Accuracy	Logic	Handling of OOV Words
-HMM	92.70%	Generative (Transition/Emission)	Relies on smoothed emission
-MEM	96.08%	Discriminative (Feature-based)	Uses suffixes/capitalization
+
+| **Model** | **Accuracy** | **Logic** | **Handling of OOV Words** |
+|-----------|-------------|------------|----------------------------|
+| HMM       | 92.70%      | Generative (Transition / Emission probabilities) | Relies on smoothed emission probabilities |
+| MEM       | 96.08%      | Discriminative (Feature-based approach) | Uses morphological features such as suffixes and capitalization |
+
 
 ## Key Observations
 The Accuracy Gap: The MEM outperformed the HMM by 3.38%. This is primarily because the MEM can use morphological features (like the "-ing" or "-ed" suffixes) to "detect" the tag of a word it has never seen before, whereas the HMM has to rely mostly on the surrounding tags.
