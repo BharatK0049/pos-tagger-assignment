@@ -1,3 +1,5 @@
+import pickle
+from pathlib import Path
 from data_loader import load_pos_data
 from hmm_tagger import HMMTagger
 from mem_tagger import MEMTagger
@@ -28,16 +30,38 @@ def evaluate_mem(tagger, test_data):
 def main():
     train_sents, test_sents = load_pos_data(split_ratio=0.8)
     
-    # --- HMM Section ---
-    print("\n[1/2] Training HMM...")
-    hmm = HMMTagger()
-    hmm.train(train_sents)
-    hmm_acc = evaluate_hmm(hmm, test_sents)
+    # Define file names for our saved models
+    HMM_FILE = "hmm_model.pkl"
+    MEM_FILE = "mem_model.pkl"
+
+# --- HMM Section ---
+    if Path(HMM_FILE).exists():
+        print(f"\nLoading saved HMM from {HMM_FILE}...")
+        with open(HMM_FILE, 'rb') as f:
+            hmm = pickle.load(f)
+    else:
+        print("\n[1/2] Training HMM...")
+        hmm = HMMTagger()
+        hmm.train(train_sents)
+        print(f"Saving HMM to {HMM_FILE}...")
+        with open(HMM_FILE, 'wb') as f:
+            pickle.dump(hmm, f)
     
+    hmm_acc = evaluate_hmm(hmm, test_sents)
+
     # --- MEM Section ---
-    print("\n[2/2] Training MEM (Logistic Regression)...")
-    mem = MEMTagger()
-    mem.train(train_sents) # This will take a moment to extract features
+    if Path(MEM_FILE).exists():
+        print(f"\nLoading saved MEM from {MEM_FILE}...")
+        with open(MEM_FILE, 'rb') as f:
+            mem = pickle.load(f)
+    else:
+        print("\n[2/2] Training MEM (Logistic Regression)...")
+        mem = MEMTagger()
+        mem.train(train_sents)
+        print(f"Saving MEM to {MEM_FILE}...")
+        with open(MEM_FILE, 'wb') as f:
+            pickle.dump(mem, f)
+            
     mem_acc = evaluate_mem(mem, test_sents)
     
     # --- FINAL COMPARISON ---
