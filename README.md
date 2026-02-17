@@ -76,6 +76,9 @@ python src/main.py
 | HMM       | 92.70%      | Generative (Transition / Emission probabilities) | Relies on smoothed emission probabilities |
 | MEM       | 96.08%      | Discriminative (Feature-based approach) | Uses morphological features such as suffixes and capitalization |
 
+## Output
+<img width="425" height="74" alt="image" src="https://github.com/user-attachments/assets/b0255e48-756d-4711-95ba-efe23b0aca1a" />
+
 
 ## Key Observations
 The Accuracy Gap: The MEM outperformed the HMM by 3.38%. This is primarily because the MEM can use morphological features (like the "-ing" or "-ed" suffixes) to "detect" the tag of a word it has never seen before, whereas the HMM has to rely mostly on the surrounding tags.
