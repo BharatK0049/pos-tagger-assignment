@@ -79,6 +79,9 @@ python src/main.py
 ## Output
 <img width="425" height="74" alt="image" src="https://github.com/user-attachments/assets/b0255e48-756d-4711-95ba-efe23b0aca1a" />
 
+<img width="584" height="253" alt="image" src="https://github.com/user-attachments/assets/727302cc-ab25-4524-901a-712033bb2240" />
+
+
 
 ## Key Observations
 The Accuracy Gap: The MEM outperformed the HMM by 3.38%. This is primarily because the MEM can use morphological features (like the "-ing" or "-ed" suffixes) to "detect" the tag of a word it has never seen before, whereas the HMM has to rely mostly on the surrounding tags.
