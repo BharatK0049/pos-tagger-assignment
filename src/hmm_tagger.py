@@ -23,7 +23,7 @@ class HMMTagger:
             self.tags.add(prev_tag)
             
             for word, tag in sentence:
-                word = word.lower()
+                word = word.lower() 
                 self.tags.add(tag)
                 
                 # Transition: How likely is this tag after the previous one?

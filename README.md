@@ -52,3 +52,24 @@ pos_tagger_assignment/
 ├── mem_model.pkl            # Serialized MEM (optional/generated)
 ├── requirements.txt
 └── README.md
+```
+
+## Installation and Usage
+
+### Setup Environment
+```bash
+python -m venv .venv
+source .venv/bin/activate  # Or .venv\Scripts\activate on Windows
+pip install -r requirements.txt
+```
+
+### Run Evaluation
+
+```bash
+python src/main.py
+```
+
+## Results and Comparison
+Model,Accuracy,Logic,Handling of OOV Words
+HMM,92.69%,Generative (Transition/Emission),Relies on smoothed emission
+MEM,[Insert %],Discriminative (Feature-based),Uses suffixes/capitalization
