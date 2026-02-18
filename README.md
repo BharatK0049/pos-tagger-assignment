@@ -25,7 +25,7 @@ The HMM identifies the correct tag by calculating the most likely sequence of hi
 ---
 
 ## 2. Maximum Entropy Model (MEM)
-The MEM is a discriminative model ($P(y|x)$) that allows for the integration of complex, non-independent features of the context.
+The MEM is a discriminative model $P(y|x)$ that allows for the integration of complex, non-independent features of the context.
 
 ### Feature Functions $f(x, y)$
 Unlike the HMM, which is restricted to local transitions, the MEM uses a rich feature set to represent the context $x$:
